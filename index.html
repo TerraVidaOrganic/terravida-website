@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TerraVida Organics — Real Food. Real Farmers. Real Transparency.</title>
+<meta name="description" content="TerraVida Organics grows clean, local microgreens and culinary herbs for chefs, retailers, and families across the Tampa Bay and St. Pete area. Full-service horse boarding with trail access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1F3A24;
+    --forest-deep: #14271A;
+    --moss: #4E7A3E;
+    --sage: #8FA985;
+    --bone: #F4EFE3;
+    --beige: #E8DFC8;
+    --beige-dark: #C9BC9C;
+    --warm: #C97B3A;
+    --black: #1A1A1A;
+    --rule: rgba(31, 58, 36, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    background: var(--bone);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    color: var(--forest-deep);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  a { color: var(--forest); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: var(--warm); }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(244, 239, 227, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 18px 0;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--forest-deep);
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: var(--warm); font-weight: 400; font-size: 13px; letter-spacing: 4px; margin-left: 8px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--forest-deep);
+  }
+  .menu-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    font-size: 24px; color: var(--forest-deep);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 32px 80px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--bone) 0%, var(--beige) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%; height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(78, 122, 62, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 24px;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 88px);
+    font-weight: 400;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--moss);
+  }
+  .hero-tagline {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 48px;
+  }
+  .hero-tagline span { color: var(--warm); }
+  .hero p {
+    font-size: 19px;
+    color: #3a3a3a;
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 16px 36px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--forest-deep);
+    color: var(--bone);
+  }
+  .btn-primary:hover {
+    background: var(--warm);
+    color: var(--bone);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--forest-deep);
+    border: 1.5px solid var(--forest-deep);
+  }
+  .btn-secondary:hover {
+    background: var(--forest-deep);
+    color: var(--bone);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 120px 32px;
+    position: relative;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .section-title {
+    font-size: clamp(34px, 5vw, 56px);
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about { background: var(--bone); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-side h2 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 24px;
+  }
+  .about-side .pull {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--moss);
+    border-left: 2px solid var(--warm);
+    padding-left: 24px;
+    margin-top: 32px;
+  }
+  .about-content p {
+    font-size: 17px;
+    color: #2a2a2a;
+    margin-bottom: 22px;
+  }
+  .about-content p:first-child::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    font-weight: 600;
+    float: left;
+    line-height: 0.9;
+    margin: 6px 12px 0 0;
+    color: var(--forest-deep);
+  }
+
+  /* ---------- PRODUCTS ---------- */
+  .products { background: var(--forest-deep); color: var(--bone); }
+  .products .section-eyebrow { color: var(--sage); }
+  .products .section-title { color: var(--bone); }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .product-card {
+    background: rgba(244, 239, 227, 0.04);
+    border: 1px solid rgba(244, 239, 227, 0.12);
+    padding: 48px 40px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--warm);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover { background: rgba(244, 239, 227, 0.07); }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-num {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--warm);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .product-card h3 {
+    color: var(--bone);
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .product-card p {
+    color: rgba(244, 239, 227, 0.8);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ---------- BOARDING ---------- */
+  .boarding {
+    background: var(--beige);
+    position: relative;
+  }
+  .boarding-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .boarding-content p {
+    font-size: 17px;
+    color: #2a2a2a;
+    margin-bottom: 24px;
+  }
+  .price-card {
+    background: var(--bone);
+    border: 1px solid var(--beige-dark);
+    padding: 48px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .price-card .label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 16px;
+  }
+  .price-card .price {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    font-weight: 500;
+    color: var(--forest-deep);
+    line-height: 1;
+  }
+  .price-card .price-sub {
+    font-size: 14px;
+    color: #5a5a5a;
+    margin-top: 8px;
+  }
+  .price-card ul {
+    list-style: none;
+    margin-top: 36px;
+    text-align: left;
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+  }
+  .price-card li {
+    font-size: 14px;
+    color: #2a2a2a;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+  }
+  .price-card li:last-child { border-bottom: none; }
+  .price-card li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--warm);
+    margin-right: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ---------- METHOD ---------- */
+  .method { background: var(--bone); }
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 24px;
+  }
+  .method-card {
+    padding-top: 28px;
+    border-top: 2px solid var(--forest-deep);
+  }
+  .method-card .num {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--warm);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .method-card h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+  .method-card p {
+    font-size: 15px;
+    color: #3a3a3a;
+    line-height: 1.7;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    background: var(--forest-deep);
+    color: var(--bone);
+    text-align: center;
+    padding: 140px 32px;
+  }
+  .contact .section-eyebrow { color: var(--sage); }
+  .contact h2 {
+    color: var(--bone);
+    font-size: clamp(40px, 6vw, 72px);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+  .contact h2 em { color: var(--sage); font-style: italic; font-weight: 300; }
+  .contact p {
+    font-size: 18px;
+    color: rgba(244, 239, 227, 0.85);
+    max-width: 620px;
+    margin: 0 auto 48px;
+  }
+  .contact-email {
+    display: inline-block;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--bone);
+    border-bottom: 2px solid var(--warm);
+    padding-bottom: 8px;
+    transition: all 0.25s ease;
+  }
+  .contact-email:hover {
+    color: var(--warm);
+    transform: translateY(-2px);
+  }
+  .contact-meta {
+    margin-top: 64px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(244, 239, 227, 0.5);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--forest-deep);
+    color: rgba(244, 239, 227, 0.6);
+    padding: 40px 32px;
+    border-top: 1px solid rgba(244, 239, 227, 0.1);
+    font-size: 13px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-tag {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--bone); flex-direction: column; padding: 32px; gap: 24px; border-bottom: 1px solid var(--rule); }
+    .nav-links.open { display: flex; }
+    .menu-toggle { display: block; }
+    .about-grid, .boarding-grid { grid-template-columns: 1fr; gap: 40px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; gap: 32px; }
+    section { padding: 80px 24px; }
+    .hero { padding: 120px 24px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">TerraVida<span>ORGANICS</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#boarding">Boarding</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Central Florida · Est. 2026</span>
+    <h1>Rebuilding the connection between <em>the land, the grower,</em> and the people being fed.</h1>
+    <div class="hero-tagline">Real Food. <span>·</span> Real Farmers. <span>·</span> Real Transparency.</div>
+    <p>TerraVida Organics grows clean, local microgreens and culinary herbs for chefs, specialty retailers, and families across the Tampa Bay and St. Pete area — backed by full-service horse boarding at a working farm.</p>
+    <div class="btn-row">
+      <a href="#products" class="btn btn-primary">See What We Grow</a>
+      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-side">
+        <span class="section-eyebrow">Our Story</span>
+        <h2>Built in response to a broken system.</h2>
+        <div class="pull">
+          We are not trying to be a giant brand. We are trying to prove that a better food system is still possible when somebody is willing to actually build it.
+        </div>
+      </div>
+      <div class="about-content">
+        <p>I spent 12 years in the medical and commercial cannabis industry, building clean organic production systems for patients who needed quality they could trust. Then my father was diagnosed with a degenerative brain disease. I sold my company, moved to Florida to take care of him, and started looking at the food on grocery store shelves the same way I used to look at medicine.</p>
+        <p>What I saw was a system rigged against everyone in it. Farmers squeezed by costs they did not create. Customers paying premium prices for food shipped halfway across the country. Soil destroyed by salt-based nutrients and EDTA chelates that have no place in clean food production. A supply chain bloated with middlemen who add nothing to the product but cost.</p>
+        <p>TerraVida Organics is what I built in response. Our model is simple. Grow clean food locally using methods refined over a decade in a far more demanding industry. Cut out the long-distance shipping, the unnecessary middlemen, and the chemical inputs that degrade both the land and the product. Sell directly to the chefs, retailers, and families who actually live near the farm.</p>
+        <p>The cannabis industry taught me two things. Quality is non-negotiable. And keeping overhead low enough to compete is what separates real operations from the ones that fold. TerraVida is built on both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="container">
+    <span class="section-eyebrow">What We Grow</span>
+    <h2 class="section-title">Clean inputs. Organic methods. Full transparency from seed to harvest.</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="product-num">01 / Microgreens</span>
+        <h3>Restaurant-grade microgreens, grown the right way.</h3>
+        <p>We grow microgreens the way medicine should be grown. Clean inputs, organic methods, and full transparency from seed to harvest. Every tray is grown on hemp mats with our own compost tea blend, never salt-based fertilizers, and harvested at peak nutrition for chefs and customers who can taste the difference. Our varieties are selected for the Tampa Bay restaurant and specialty retail market, with a focus on consistency and quality you can build a menu around.</p>
+      </div>
+      <div class="product-card">
+        <span class="product-num">02 / Culinary Herbs</span>
+        <h3>Fresh herbs, delivered local — never flown in.</h3>
+        <p>Restaurant-grade culinary herbs grown locally and delivered fresh, not flown in from across the country three days past harvest. Our greenhouse production is built around clean organic methods, precise environmental control, and steady year-round supply. We grow for chefs who care where their ingredients come from and retailers whose customers ask the same question.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARDING -->
+<section class="boarding" id="boarding">
+  <div class="container">
+    <div class="boarding-grid">
+      <div class="boarding-content">
+        <span class="section-eyebrow">Horse Boarding</span>
+        <h2 class="section-title">Full-service boarding. Two of Florida's largest trail systems at the gate.</h2>
+        <p>Full-service boarding at a working farm with direct access to the Cross Florida Greenway and Withlacoochee State Forest, two of Florida's largest trail systems, both within walking distance of the barn.</p>
+        <p>Twelve stalls available, each with running water and room to move, plus daily grooming and feeding included in every boarding agreement. No trailer required to ride. Our facility is built for horse owners who want their animals well cared for and want to spend their time riding, not hauling.</p>
+        <a href="#contact" class="btn btn-primary">Inquire About Boarding</a>
+      </div>
+      <div class="price-card">
+        <div class="label">Monthly Boarding</div>
+        <div class="price">$900</div>
+        <div class="price-sub">per horse / per month</div>
+        <ul>
+          <li>Daily feeding</li>
+          <li>Daily grooming</li>
+          <li>Large stalls with running water</li>
+          <li>Direct trail access</li>
+          <li>No trailer required to ride</li>
+          <li>12 stalls available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method" id="method">
+  <div class="container">
+    <span class="section-eyebrow">Our Method</span>
+    <h2 class="section-title">A decade of clean growing, brought to your plate.</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <span class="num">01</span>
+        <h3>Clean inputs only.</h3>
+        <p>No salt-based nutrients. No EDTA chelates. We grow with our own organic compost tea on hemp mats — the same precision approach refined over twelve years in medical cannabis production.</p>
+      </div>
+      <div class="method-card">
+        <span class="num">02</span>
+        <h3>Local first, always.</h3>
+        <p>Direct from our farm to chefs, retailers, and families across Tampa Bay and St. Pete. No long-distance shipping. No middlemen adding cost without adding value. Fresher product, lower prices.</p>
+      </div>
+      <div class="method-card">
+        <span class="num">03</span>
+        <h3>Seed to sale traceability.</h3>
+        <p>Every batch is tracked from seeding to harvest. QR codes on our packaging let you watch the actual time-lapse of your microgreens being grown — full transparency, no marketing fluff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="section-eyebrow">Get In Touch</span>
+    <h2>Chefs, retailers, boarders — <em>let's talk.</em></h2>
+    <p>Whether you are a chef looking for clean local product, a retailer building out a specialty section, or a horse owner looking for full-service boarding near the trails, we want to hear from you.</p>
+    <a href="mailto:admin@terravidafl.net" class="contact-email">admin@terravidafl.net</a>
+    <div class="contact-meta">Central Florida · Serving Tampa Bay & St. Pete</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 TerraVida Organics, LLC. All rights reserved.</div>
+    <div class="footer-tag">Real Food · Real Farmers · Real Transparency</div>
+  </div>
+</footer>
+
+<script>
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
